@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+      //document.ready fires before assets is completely loaded
+      $(document).ready(function() {
+        $("button").click(function() {
+          $("table").removeClass("d-none");
+          $(this).attr("disabled", "disabled");
+          arrStudents = [
+            { name: "Monika", Email: "monika@", PhoneNo: 9876895645 },
+            { name: "Amit", Email: "monika@", PhoneNo: 9876895645 },
+            { name: "Gargi", Email: "monika@", PhoneNo: 9876895645 }
+          ];
+          $(arrStudents).each(function(i) {
+            objStudent = arrStudents[i];
+
+            $(
+              "<tr><td>" +
+                i +
+                "</td><td>" +
+                objStudent.name +
+                "</td><td>" +
+                objStudent.Email +
+                "</td><td>" +
+                objStudent.PhoneNo +
+                "</td>"
+            ).appendTo("table");
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button class="btn btn-primary button" type="submit">Loading</button>
+    <table class="table d-none">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email Id</th>
+          <th scope="col">Phone-No</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+</html>
