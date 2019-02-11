@@ -12,26 +12,25 @@
       //document.ready fires before assets is completely loaded
       $(document).ready(function() {
         $("button").click(function() {
-          $("table").removeClass("d-none");
+          // $(event.currentTarget).attr("disabled", "disabled");
           $(this).attr("disabled", "disabled");
+          $("table").removeClass("d-none");
           arrStudents = [
-            { name: "Monika", Email: "monika@", PhoneNo: 9876895645 },
-            { name: "Amit", Email: "monika@", PhoneNo: 9876895645 },
-            { name: "Gargi", Email: "monika@", PhoneNo: 9876895645 }
+            { name: "Monika", Email: "monika@", PhoneNo: "9876895645" },
+            { name: "Amit", Email: "monika@", PhoneNo: "9876895645" },
+            { name: "Gargi", Email: "monika@", PhoneNo: "9876895645" }
           ];
           $(arrStudents).each(function(i) {
-            objStudent = arrStudents[i];
-
             $(
               "<tr><td>" +
                 i +
                 "</td><td>" +
-                objStudent.name +
+                this.name +
                 "</td><td>" +
-                objStudent.Email +
+                this.Email +
                 "</td><td>" +
-                objStudent.PhoneNo +
-                "</td>"
+                this.PhoneNo +
+                "</td></tr>"
             ).appendTo("table");
           });
         });
@@ -39,7 +38,9 @@
     </script>
   </head>
   <body>
-    <button class="btn btn-primary button" type="submit">Loading</button>
+    <button class="btn btn-primary button" type="submit">
+      Click here to load student info
+    </button>
     <table class="table d-none">
       <thead class="thead-dark">
         <tr>
