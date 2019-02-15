@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- <a>jQuery.com</a>
+    <a>Monika</a>
+    <a>Monika gharat</a> -->
+    <a href="http://www.jquery.com" title="anchor1">jQuery.com</a>
+    <a href="http://www.jquery.com" title="anchor2">jQuery.com</a>
+    <a href="http://www.jquery.com" title="anchor3">jQuery.com</a>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Using DOM node properties to set the title attribute.
+        // $("a").get(1);
+        // $("a")[1];
+        // $("a").attr("title", "Amit");
+        var arrayOfAnchors = $("a").get(); // Create native array from wrapper set.
+        alert(arrayOfAnchors[2].title);
+        // console.log($("a").get(1));
+        // Manipulation of DOM element using jQuery methods.
+        $("a").attr("href", "http://www.jquery.com");
+      });
+    </script>
+  </body>
+</html>
+<!-- Checking to see if the wrapper set is empty -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <body>
+    <a>jQuery</a>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+      if (jQuery("a").get(0)) {
+        // Is there an element in the set?
+        jQuery("a").attr("href", "http://www.jquery.com");
+      }
+      if (jQuery("a").length) {
+        // Check the length of the set. Can also use .size()
+        jQuery("a").attr("title", "jQuery");
+      }
+    </script>
+  </body>
+</html> -->

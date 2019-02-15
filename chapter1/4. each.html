@@ -12,26 +12,25 @@
       //document.ready fires before assets is completely loaded
       $(document).ready(function() {
         $("button").click(function() {
-          // $(event.currentTarget).attr("disabled", "disabled");
-          $(this).attr("disabled", "disabled");
-          $("table").removeClass("d-none");
-          arrStudents = [
-            { name: "Monika", Email: "monika@", PhoneNo: "9876895645" },
-            { name: "Amit", Email: "monika@", PhoneNo: "9876895645" },
-            { name: "Gargi", Email: "monika@", PhoneNo: "9876895645" }
-          ];
-          $(arrStudents).each(function(i) {
-            $(
-              "<tr><td>" +
-                i +
-                "</td><td>" +
-                this.name +
-                "</td><td>" +
-                this.Email +
-                "</td><td>" +
-                this.PhoneNo +
-                "</td></tr>"
-            ).appendTo("table");
+          $.get("./table.json", function(arrStudents) {
+            console.log(arrStudents);
+
+            // $(event.currentTarget).attr("disabled", "disabled");
+            $(this).attr("disabled", "disabled");
+            $(arrStudents).each(function(i) {
+              $(
+                "<tr><td>" +
+                  i +
+                  "</td><td>" +
+                  this.name +
+                  "</td><td>" +
+                  this.Email +
+                  "</td><td>" +
+                  this.PhoneNo +
+                  "</td></tr>"
+              ).appendTo("table");
+            });
+            $("table").removeClass("d-none");
           });
         });
       });
